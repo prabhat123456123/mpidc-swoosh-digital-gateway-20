@@ -1,19 +1,29 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Building, Shield, Lock, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import AIchatbot from "@/components/AIchatbot";
 
 const Login = () => {
+  const [searchParams] = useSearchParams();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
     otp: ""
   });
+  const [activeTab, setActiveTab] = useState("investor");
+
+  useEffect(() => {
+    const type = searchParams.get("type");
+    if (type === "official" || type === "investor") {
+      setActiveTab(type);
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
@@ -21,11 +31,13 @@ const Login = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <Building className="h-10 w-10 text-blue-600" />
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">MPIDC Portal</h1>
-              <p className="text-sm text-gray-600">Single Window System</p>
-            </div>
+            <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+              <Building className="h-10 w-10 text-blue-600" />
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">MPIDC Portal</h1>
+                <p className="text-sm text-gray-600">Single Window System</p>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -37,7 +49,7 @@ const Login = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="investor" className="space-y-6">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="investor">Investor Login</TabsTrigger>
                 <TabsTrigger value="official">Official Login</TabsTrigger>
@@ -151,6 +163,8 @@ const Login = () => {
           </Link>
         </div>
       </div>
+
+      <AIchatbot />
     </div>
   );
 };

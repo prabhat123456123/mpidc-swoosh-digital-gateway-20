@@ -15,6 +15,7 @@ import RealTimeDashboard from "./pages/RealTimeDashboard";
 import InspectionModule from "./pages/InspectionModule";
 import GrievanceRedressal from "./pages/GrievanceRedressal";
 import IncentiveManagement from "./pages/IncentiveManagement";
+import LandManagement from "./pages/LandManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/official-dashboard" element={<OfficialDashboard />} />
           <Route path="/kya" element={<KYA />} />
           <Route path="/caf" element={<CAF />} />
+          <Route path="/land-management" element={<LandManagement />} />
           <Route path="/payment-gateway" element={<PaymentGateway />} />
           <Route path="/real-time-dashboard" element={<RealTimeDashboard />} />
           <Route path="/inspection-module" element={<InspectionModule />} />

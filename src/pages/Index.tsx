@@ -3,11 +3,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building, FileText, Search, Users, CreditCard, BarChart, MessageSquare, Shield, Gift } from "lucide-react";
+import { Building, FileText, Search, Users, CreditCard, BarChart, MessageSquare, Shield, Gift, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import AIchatbot from "@/components/AIchatbot";
 
 const Index = () => {
-  const [userType, setUserType] = useState<'investor' | 'official' | null>(null);
+  const [showLoginOptions, setShowLoginOptions] = useState(false);
 
   const features = [
     {
@@ -25,11 +26,18 @@ const Index = () => {
       link: "/caf"
     },
     {
-      icon: CreditCard,
-      title: "Unified Payment Gateway",
-      description: "Consolidated payments for multiple approvals",
-      color: "bg-purple-500",
-      link: "/payment-gateway"
+      icon: MapPin,
+      title: "Land Management",
+      description: "Comprehensive land allocation and management system",
+      color: "bg-amber-500",
+      link: "/land-management"
+    },
+    {
+      icon: Gift,
+      title: "Incentive Management",
+      description: "Track and manage government incentives and subsidies",
+      color: "bg-indigo-500",
+      link: "/incentive-management"
     },
     {
       icon: BarChart,
@@ -51,21 +59,7 @@ const Index = () => {
       description: "SLA-bound ticket system for investor queries",
       color: "bg-red-500",
       link: "/grievance-redressal"
-    },
-    {
-      icon: Gift,
-      title: "Incentive Management",
-      description: "Track and manage government incentives and subsidies",
-      color: "bg-indigo-500",
-      link: "/incentive-management"
     }
-  ];
-
-  const stats = [
-    { label: "Active Applications", value: "2,543", trend: "+12%" },
-    { label: "Approvals Processed", value: "1,892", trend: "+8%" },
-    { label: "SLA Compliance", value: "94.2%", trend: "+2.1%" },
-    { label: "Average Processing Time", value: "12 days", trend: "-15%" }
   ];
 
   return (
@@ -86,9 +80,26 @@ const Index = () => {
                 <Shield className="h-3 w-3 mr-1" />
                 Secure Portal
               </Badge>
-              <Link to="/login">
-                <Button variant="outline">Login</Button>
-              </Link>
+              <div className="relative">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowLoginOptions(!showLoginOptions)}
+                >
+                  Login
+                </Button>
+                {showLoginOptions && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border z-10">
+                    <div className="py-1">
+                      <Link to="/login?type=investor" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Investor Login
+                      </Link>
+                      <Link to="/login?type=official" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Official Login
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -96,7 +107,7 @@ const Index = () => {
 
       {/* Main Content */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero Section - Reduced padding */}
+        {/* Hero Section */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-3">
             Madhya Pradesh Investment Portal
@@ -105,52 +116,9 @@ const Index = () => {
             A unified digital platform for investors to apply, track, and obtain approvals, 
             payments, inspections, and grievance redressal in a transparent, time-bound manner.
           </p>
-          
-          {/* User Type Selection - Reduced margin */}
-          <div className="flex justify-center space-x-4 mb-6">
-            <Button 
-              onClick={() => setUserType('investor')}
-              variant={userType === 'investor' ? 'default' : 'outline'}
-              size="lg"
-              className="min-w-32"
-            >
-              Investor Portal
-            </Button>
-            <Button 
-              onClick={() => setUserType('official')}
-              variant={userType === 'official' ? 'default' : 'outline'}
-              size="lg"
-              className="min-w-32"
-            >
-              Official Portal
-            </Button>
-          </div>
-
-          {userType && (
-            <div className="animate-fade-in mb-6">
-              <Link to={userType === 'investor' ? '/investor-dashboard' : '/official-dashboard'}>
-                <Button size="lg" className="px-8">
-                  Enter {userType === 'investor' ? 'Investor' : 'Official'} Dashboard
-                </Button>
-              </Link>
-            </div>
-          )}
         </div>
 
-        {/* Stats - Reduced margin */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          {stats.map((stat, index) => (
-            <Card key={index} className="text-center">
-              <CardContent className="pt-4 pb-4">
-                <div className="text-xl font-bold text-gray-900">{stat.value}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
-                <div className="text-xs text-green-600 font-medium mt-1">{stat.trend}</div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Features Grid - Compact layout */}
+        {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {features.map((feature, index) => (
             <Link key={index} to={feature.link}>
@@ -172,7 +140,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer - Reduced top margin */}
+      {/* Footer */}
       <footer className="bg-gray-800 text-white mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center">
@@ -185,6 +153,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* AI Chatbot */}
+      <AIchatbot />
     </div>
   );
 };
