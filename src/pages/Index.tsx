@@ -1,9 +1,8 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building, FileText, Search, Users, CreditCard, BarChart, MessageSquare, Shield } from "lucide-react";
+import { Building, FileText, Search, Users, CreditCard, BarChart, MessageSquare, Shield, Gift } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -14,37 +13,50 @@ const Index = () => {
       icon: Search,
       title: "Know Your Approvals (KYA)",
       description: "Identify required approvals through dynamic questionnaires",
-      color: "bg-blue-500"
+      color: "bg-blue-500",
+      link: "/kya"
     },
     {
       icon: FileText,
       title: "Common Application Form",
       description: "Unified application form with auto-fill capabilities",
-      color: "bg-green-500"
+      color: "bg-green-500",
+      link: "/caf"
     },
     {
       icon: CreditCard,
       title: "Unified Payment Gateway",
       description: "Consolidated payments for multiple approvals",
-      color: "bg-purple-500"
+      color: "bg-purple-500",
+      link: "/payment-gateway"
     },
     {
       icon: BarChart,
       title: "Real-time Dashboard",
       description: "Track application status and compliance metrics",
-      color: "bg-orange-500"
+      color: "bg-orange-500",
+      link: "/real-time-dashboard"
     },
     {
       icon: Users,
       title: "Inspection Module",
       description: "Schedule and manage compliance inspections",
-      color: "bg-teal-500"
+      color: "bg-teal-500",
+      link: "/inspection-module"
     },
     {
       icon: MessageSquare,
       title: "Grievance Redressal",
       description: "SLA-bound ticket system for investor queries",
-      color: "bg-red-500"
+      color: "bg-red-500",
+      link: "/grievance-redressal"
+    },
+    {
+      icon: Gift,
+      title: "Incentive Management",
+      description: "Track and manage government incentives and subsidies",
+      color: "bg-indigo-500",
+      link: "/incentive-management"
     }
   ];
 
@@ -139,19 +151,21 @@ const Index = () => {
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardHeader>
-                <div className="flex items-center space-x-3">
-                  <div className={`p-2 rounded-lg ${feature.color}`}>
-                    <feature.icon className="h-6 w-6 text-white" />
+            <Link key={index} to={feature.link}>
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                  <div className="flex items-center space-x-3">
+                    <div className={`p-2 rounded-lg ${feature.color}`}>
+                      <feature.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-lg">{feature.title}</CardTitle>
                   </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>{feature.description}</CardDescription>
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{feature.description}</CardDescription>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>

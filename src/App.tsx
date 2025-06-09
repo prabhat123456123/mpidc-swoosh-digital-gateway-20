@@ -10,6 +10,11 @@ import OfficialDashboard from "./pages/OfficialDashboard";
 import KYA from "./pages/KYA";
 import CAF from "./pages/CAF";
 import Login from "./pages/Login";
+import PaymentGateway from "./pages/PaymentGateway";
+import RealTimeDashboard from "./pages/RealTimeDashboard";
+import InspectionModule from "./pages/InspectionModule";
+import GrievanceRedressal from "./pages/GrievanceRedressal";
+import IncentiveManagement from "./pages/IncentiveManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +32,11 @@ const App = () => (
           <Route path="/official-dashboard" element={<OfficialDashboard />} />
           <Route path="/kya" element={<KYA />} />
           <Route path="/caf" element={<CAF />} />
+          <Route path="/payment-gateway" element={<PaymentGateway />} />
+          <Route path="/real-time-dashboard" element={<RealTimeDashboard />} />
+          <Route path="/inspection-module" element={<InspectionModule />} />
+          <Route path="/grievance-redressal" element={<GrievanceRedressal />} />
+          <Route path="/incentive-management" element={<IncentiveManagement />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
