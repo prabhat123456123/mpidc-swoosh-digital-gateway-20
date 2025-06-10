@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building, Upload, FileText, Download, Trash2, Eye, Plus, Calendar, CheckCircle } from "lucide-react";
+import { Upload, FileText, Download, Trash2, Eye, Plus, Calendar, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import AIchatbot from "@/components/AIchatbot";
 
@@ -67,11 +67,12 @@ const DocumentCenter = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-all duration-200 group">
-              <div className="p-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl group-hover:shadow-lg transition-all duration-200">
-                <Building className="h-6 w-6 text-white" />
-              </div>
+              <img 
+                src="/lovable-uploads/84ba00cc-443d-4a1e-b79b-9d53d6c2c004.png" 
+                alt="MPIDC Logo" 
+                className="h-8 w-auto object-contain"
+              />
               <div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">MPIDC</h1>
                 <p className="text-xs text-gray-600">Document Center</p>
               </div>
             </Link>
