@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,6 +16,7 @@ import GrievanceRedressal from "./pages/GrievanceRedressal";
 import IncentiveManagement from "./pages/IncentiveManagement";
 import LandManagement from "./pages/LandManagement";
 import NotFound from "./pages/NotFound";
+import DocumentCenter from "./pages/DocumentCenter";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +34,7 @@ const App = () => (
           <Route path="/kya" element={<KYA />} />
           <Route path="/caf" element={<CAF />} />
           <Route path="/land-management" element={<LandManagement />} />
+          <Route path="/document-center" element={<DocumentCenter />} />
           <Route path="/payment-gateway" element={<PaymentGateway />} />
           <Route path="/real-time-dashboard" element={<RealTimeDashboard />} />
           <Route path="/inspection-module" element={<InspectionModule />} />
