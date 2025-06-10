@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -202,52 +203,42 @@ const Index = () => {
         />
 
         {/* Main Content */}
-        <main className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        <main className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           {/* Hero Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium mb-6">
-              <Shield className="w-4 h-4 mr-2" />
-              Government of Madhya Pradesh
-            </div>
-            
-            <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-6 leading-tight">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-4 leading-tight">
               {currentLang.title}
             </h1>
             
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
               {currentLang.subtitle}
             </p>
 
             {/* Quick Actions */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Link to="/kya">
-                <Button className="gradient-primary text-white border-0 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl px-6 py-3 hover-lift">
+                <Button className="gradient-primary text-white border-0 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl px-6 py-2 hover-lift">
                   Get Started
-                </Button>
-              </Link>
-              <Link to="/document-center">
-                <Button variant="outline" className="border-gray-300 dark:border-gray-600 hover:bg-surface-hover rounded-xl px-6 py-3 hover-glow">
-                  Upload Documents
                 </Button>
               </Link>
             </div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-12">
             {features.map((feature, index) => (
               <Link key={index} to={feature.link} className="group">
                 <Card className="glass-card h-full border-0 hover-lift hover-glow cursor-pointer group-hover:border-blue-200 dark:group-hover:border-blue-700">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className={`p-3 rounded-2xl bg-gradient-to-r ${feature.color} shadow-lg group-hover:shadow-xl transition-all duration-300`}>
-                        <feature.icon className="h-6 w-6 text-white" />
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between mb-2">
+                      <div className={`p-2 rounded-xl bg-gradient-to-r ${feature.color} shadow-lg group-hover:shadow-xl transition-all duration-300`}>
+                        <feature.icon className="h-5 w-5 text-white" />
                       </div>
                       <Badge variant="secondary" className="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 border-0">
                         {feature.badge}
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg leading-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <CardTitle className="text-base leading-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
@@ -266,18 +257,18 @@ const Index = () => {
         </main>
 
         {/* Footer */}
-        <footer className="glass border-t border-gray-200 dark:border-gray-700 mt-20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        <footer className="glass border-t border-gray-200 dark:border-gray-700 mt-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
             <div className="text-center">
-              <div className="flex justify-center items-center mb-4">
+              <div className="flex justify-center items-center mb-3">
                 <img 
                   src="/lovable-uploads/84ba00cc-443d-4a1e-b79b-9d53d6c2c004.png" 
                   alt="MPIDC Logo" 
-                  className="h-8 w-auto object-contain mr-3"
+                  className="h-6 w-auto object-contain mr-2"
                 />
-                <span className="text-lg font-semibold text-gray-900 dark:text-white">MPIDC</span>
+                <span className="text-base font-semibold text-gray-900 dark:text-white">MPIDC</span>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
                 {currentLang.footer}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-500">
