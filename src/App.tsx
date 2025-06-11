@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,6 +18,7 @@ import IncentiveManagement from "./pages/IncentiveManagement";
 import LandManagement from "./pages/LandManagement";
 import NotFound from "./pages/NotFound";
 import DocumentCenter from "./pages/DocumentCenter";
+import AutoFetchDemo from "./pages/AutoFetchDemo";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +42,7 @@ const App = () => (
           <Route path="/inspection-module" element={<InspectionModule />} />
           <Route path="/grievance-redressal" element={<GrievanceRedressal />} />
           <Route path="/incentive-management" element={<IncentiveManagement />} />
+          <Route path="/auto-fetch-demo" element={<AutoFetchDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
