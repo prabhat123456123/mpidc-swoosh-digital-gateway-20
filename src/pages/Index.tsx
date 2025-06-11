@@ -180,7 +180,7 @@ const Index = () => {
       icon: MessageSquare,
       title: currentLang.features[7].title,
       description: currentLang.features[7].description,
-      color: "from-orange-500 via-red-600 to-pink-600",
+      color: "from-slate-400 via-gray-500 to-gray-600",
       link: "/grievance-redressal",
       badge: "24/7"
     },
