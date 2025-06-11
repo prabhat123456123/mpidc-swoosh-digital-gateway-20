@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -195,7 +196,7 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark' : ''}`}>
-      <div className="gradient-surface min-h-screen">
+      <div className="gradient-surface-liquid min-h-screen">
         {/* Header */}
         <SharedHeader 
           title="Single Window System"
@@ -207,47 +208,49 @@ const Index = () => {
         />
 
         {/* Main Content */}
-        <main className="max-w-6xl mx-auto px-4 lg:px-6 py-6">
+        <main className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           {/* Hero Section */}
-          <div className="text-center mb-8">
-            <h1 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-3 leading-tight">
-              {currentLang.title}
-            </h1>
-            
-            <p className="text-base text-gray-600 dark:text-gray-300 mb-5 max-w-2xl mx-auto leading-relaxed">
-              {currentLang.subtitle}
-            </p>
+          <div className="text-center mb-12 float-animation">
+            <div className="liquid-glass-card p-8 mb-8 hover-glow-liquid">
+              <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-300 dark:to-purple-300 bg-clip-text text-transparent mb-4 leading-tight">
+                {currentLang.title}
+              </h1>
+              
+              <p className="text-lg text-gray-700/80 dark:text-gray-300/80 mb-6 max-w-3xl mx-auto leading-relaxed">
+                {currentLang.subtitle}
+              </p>
 
-            {/* Quick Actions */}
-            <div className="flex flex-wrap justify-center gap-3 mb-6">
-              <Link to="/login">
-                <Button className="gradient-primary text-white border-0 hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl px-5 py-2 hover-lift text-sm">
-                  Get Started
-                </Button>
-              </Link>
+              {/* Quick Actions */}
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/login">
+                  <Button className="gradient-liquid text-white border-0 hover:scale-105 shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 rounded-2xl px-8 py-4 text-lg font-medium pulse-glow">
+                    Get Started
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
             {features.map((feature, index) => (
               <Link key={index} to={feature.link} className="group">
-                <Card className="glass-card h-full border-0 hover-lift hover-glow cursor-pointer group-hover:border-blue-200 dark:group-hover:border-blue-700">
-                  <CardHeader className="pb-2">
-                    <div className="flex items-start justify-between mb-2">
-                      <div className={`p-1.5 rounded-lg bg-gradient-to-r ${feature.color} shadow-lg group-hover:shadow-xl transition-all duration-300`}>
-                        <feature.icon className="h-4 w-4 text-white" />
+                <Card className="liquid-glass-card h-full hover-liquid hover-glow-liquid cursor-pointer group-hover:border-blue-300/40 dark:group-hover:border-blue-600/40 transition-all duration-300">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className={`p-3 rounded-2xl bg-gradient-to-r ${feature.color} shadow-2xl group-hover:shadow-3xl group-hover:scale-110 transition-all duration-300`}>
+                        <feature.icon className="h-5 w-5 text-white" />
                       </div>
-                      <Badge variant="secondary" className="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 border-0">
+                      <Badge className="liquid-glass bg-blue-500/20 text-blue-700 dark:text-blue-300 border-blue-300/30 rounded-full px-3 py-1">
                         {feature.badge}
                       </Badge>
                     </div>
-                    <CardTitle className="text-sm leading-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <CardTitle className="text-base leading-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <CardDescription className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <CardDescription className="text-sm text-gray-600/80 dark:text-gray-400/80 leading-relaxed">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -257,25 +260,32 @@ const Index = () => {
           </div>
 
           {/* AI Chatbot */}
-          <AIchatbot />
+          <div className="liquid-glass-card p-6 hover-glow-liquid">
+            <AIchatbot />
+          </div>
         </main>
 
         {/* Footer */}
-        <footer className="glass border-t border-gray-200 dark:border-gray-700 mt-8">
-          <div className="max-w-6xl mx-auto px-4 lg:px-6 py-6">
+        <footer className="liquid-glass-surface border-t border-white/20 dark:border-gray-700/30 mt-12">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
             <div className="text-center">
-              <div className="flex justify-center items-center mb-2">
-                <img 
-                  src="/lovable-uploads/84ba00cc-443d-4a1e-b79b-9d53d6c2c004.png" 
-                  alt="MPIDC Logo" 
-                  className="h-5 w-auto object-contain mr-2"
-                />
-                <span className="text-sm font-semibold text-gray-900 dark:text-white">MPIDC</span>
+              <div className="flex justify-center items-center mb-4">
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/84ba00cc-443d-4a1e-b79b-9d53d6c2c004.png" 
+                    alt="MPIDC Logo" 
+                    className="h-8 w-auto object-contain mr-3"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl"></div>
+                </div>
+                <span className="text-lg font-bold bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-white dark:via-blue-300 dark:to-purple-300 bg-clip-text text-transparent">
+                  MPIDC
+                </span>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+              <p className="text-sm text-gray-600/80 dark:text-gray-400/80 mb-2">
                 {currentLang.footer}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-500">
+              <p className="text-xs text-gray-500/70 dark:text-gray-500/70">
                 {currentLang.developed}
               </p>
             </div>
