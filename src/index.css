@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apple Liquid Glass Design System */
+/* Modern design system with improved colors and gradients */
 
 @layer base {
   :root {
@@ -37,12 +37,11 @@
 
     --radius: 0.75rem;
 
-    /* Apple Liquid Glass Colors */
-    --glass-primary: 255 255 255;
-    --glass-secondary: 248 250 252;
-    --glass-accent: 59 130 246;
-    --glass-surface: 248 250 252;
-    --glass-border: 226 232 240;
+    /* Custom modern colors */
+    --gradient-start: 220 90% 56%;
+    --gradient-end: 260 90% 65%;
+    --surface: 220 27% 98%;
+    --surface-hover: 220 16% 94%;
   }
 
   .dark {
@@ -74,28 +73,20 @@
     --input: 215 28% 17%;
     --ring: 220 90% 56%;
 
-    /* Apple Liquid Glass Dark Colors */
-    --glass-primary: 17 24 39;
-    --glass-secondary: 30 41 59;
-    --glass-accent: 59 130 246;
-    --glass-surface: 15 23 42;
-    --glass-border: 51 65 85;
+    /* Custom dark mode colors */
+    --surface: 215 28% 17%;
+    --surface-hover: 215 20% 25%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border transition-all duration-300;
+    @apply border-border transition-colors;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: linear-gradient(135deg, 
-      hsl(var(--glass-surface)) 0%, 
-      hsl(var(--glass-secondary)) 50%, 
-      hsl(var(--glass-surface)) 100%);
-    min-height: 100vh;
   }
 
   html {
@@ -108,111 +99,38 @@
     text-wrap: balance;
   }
 
-  /* Apple Liquid Glass Effects */
-  .liquid-glass {
-    @apply backdrop-blur-3xl bg-white/40 dark:bg-gray-900/40 
-           border border-white/20 dark:border-gray-700/30
-           shadow-2xl shadow-black/5 dark:shadow-black/20;
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+  /* Modern glass morphism effects */
+  .glass {
+    @apply backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 border border-white/20 dark:border-gray-700/50;
   }
 
-  .liquid-glass-card {
-    @apply liquid-glass rounded-3xl;
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.1),
-      0 2px 16px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  .glass-card {
+    @apply glass rounded-2xl shadow-xl shadow-black/5 dark:shadow-black/20;
   }
 
-  .liquid-glass-surface {
-    @apply backdrop-blur-2xl bg-gradient-to-br 
-           from-white/60 via-white/40 to-white/30
-           dark:from-gray-900/60 dark:via-gray-900/40 dark:to-gray-900/30
-           border border-white/30 dark:border-gray-700/40;
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
+  /* Modern gradients */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600;
   }
 
-  .liquid-glass-button {
-    @apply liquid-glass rounded-2xl px-6 py-3
-           hover:bg-white/60 dark:hover:bg-gray-800/60
-           active:scale-95 transform transition-all duration-200
-           shadow-lg hover:shadow-xl;
+  .gradient-surface {
+    @apply bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-blue-950 dark:to-indigo-950;
   }
 
-  .liquid-glass-input {
-    @apply liquid-glass rounded-xl px-4 py-3
-           focus:bg-white/70 dark:focus:bg-gray-800/70
-           focus:ring-2 focus:ring-blue-500/50 focus:border-transparent
-           placeholder:text-gray-500/70;
+  /* Enhanced hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/30;
   }
 
-  /* Enhanced Gradients - Removed yellow */
-  .gradient-liquid {
-    background: linear-gradient(135deg, 
-      rgba(59, 130, 246, 0.8) 0%,
-      rgba(147, 51, 234, 0.8) 50%,
-      rgba(219, 39, 119, 0.8) 100%);
-  }
-
-  .gradient-surface-liquid {
-    background: linear-gradient(135deg,
-      rgba(248, 250, 252, 0.9) 0%,
-      rgba(241, 245, 249, 0.7) 25%,
-      rgba(248, 250, 252, 0.8) 50%,
-      rgba(241, 245, 249, 0.6) 75%,
-      rgba(248, 250, 252, 0.9) 100%);
-  }
-
-  .dark .gradient-surface-liquid {
-    background: linear-gradient(135deg,
-      rgba(15, 23, 42, 0.9) 0%,
-      rgba(30, 41, 59, 0.7) 25%,
-      rgba(15, 23, 42, 0.8) 50%,
-      rgba(30, 41, 59, 0.6) 75%,
-      rgba(15, 23, 42, 0.9) 100%);
-  }
-
-  /* Apple-style Hover Effects */
-  .hover-liquid {
-    @apply transition-all duration-300 ease-out
-           hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20
-           hover:bg-white/70 dark:hover:bg-gray-800/70;
-  }
-
-  .hover-glow-liquid {
-    @apply transition-all duration-300 
-           hover:shadow-xl hover:shadow-blue-500/30 dark:hover:shadow-blue-400/30
-           hover:border-blue-300/50 dark:hover:border-blue-600/50;
-  }
-
-  /* Floating Animation */
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-
-  /* Pulse Glow Effect */
-  .pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes pulseGlow {
-    0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-    100% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 dark:hover:shadow-blue-400/25;
   }
 }
 
-/* Apple-style Scrollbar */
+/* Custom scrollbar with modern styling */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -220,28 +138,17 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400/50 dark:bg-gray-600/50 rounded-full 
-         hover:bg-gray-500/70 dark:hover:bg-gray-500/70;
-  backdrop-filter: blur(10px);
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full hover:bg-gray-400 dark:hover:bg-gray-500;
 }
 
-/* Enhanced Focus Rings */
+/* Modern focus rings */
 *:focus-visible {
-  @apply outline-none ring-2 ring-blue-500/50 ring-offset-2 ring-offset-transparent;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
 }
 
-/* Smooth transitions for all elements */
+/* Smooth transitions for everything */
 * {
-  transition-property: all;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-/* Remove App.css styles that conflict */
-#root {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: left;
+  transition-duration: 200ms;
 }
