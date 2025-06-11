@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Shield, Globe, Moon, Sun, Home, Menu } from "lucide-react";
@@ -99,7 +98,7 @@ const SharedHeader = ({
                 className="liquid-glass-button hover-liquid border-0 p-3"
               >
                 {isDarkMode ? 
-                  <Sun className="h-4 w-4 text-yellow-500" /> : 
+                  <Sun className="h-4 w-4 text-orange-500" /> : 
                   <Moon className="h-4 w-4 text-blue-600" />
                 }
               </Button>

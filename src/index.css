@@ -149,7 +149,7 @@
            placeholder:text-gray-500/70;
   }
 
-  /* Enhanced Gradients */
+  /* Enhanced Gradients - Removed yellow */
   .gradient-liquid {
     background: linear-gradient(135deg, 
       rgba(59, 130, 246, 0.8) 0%,

@@ -148,7 +148,7 @@ const Index = () => {
       icon: MapPin,
       title: currentLang.features[2].title,
       description: currentLang.features[2].description,
-      color: "from-amber-500 via-orange-600 to-red-500",
+      color: "from-slate-500 via-gray-600 to-zinc-600",
       link: "/land-management",
       badge: "New"
     },
